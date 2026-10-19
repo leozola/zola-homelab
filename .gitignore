@@ -1,12 +1,15 @@
 # Ignora arquivos de ambiente com senhas reais
 .env
-**/ .env
+**/.env
 
-# Ignora pastas de dados persistentes dos containers
-**/data/
-**/db_data/
+# Ignora pastas de volumes e dados persistentes do Nextcloud, Portainer e AIOStreams
+**/nextcloud-db/
+**/nextcloud-app/
+**/portainer_data/
+**/aiostreams/config/
 **/config/
-**/html/
-nextcloud/data/
-portainer/data/
-mariadb/data/
+**/data/
+
+# Logs e arquivos temporários do sistema
+*.log
+.DS_Store
