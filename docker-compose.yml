@@ -1,0 +1,10 @@
+# version: '3.8'
+
+include:
+  - nextcloud/compose.yml
+  - aiostreams/compose.yml
+  - portainer/compose.yml
+
+networks:
+  rede-server:
+    driver: bridge

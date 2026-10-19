@@ -1,0 +1,12 @@
+# Ignora arquivos de ambiente com senhas reais
+.env
+**/ .env
+
+# Ignora pastas de dados persistentes dos containers
+**/data/
+**/db_data/
+**/config/
+**/html/
+nextcloud/data/
+portainer/data/
+mariadb/data/
