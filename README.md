@@ -6,9 +6,9 @@ Repositório central de infraestrutura e serviços em containers Docker para o m
 
 ## Visão Geral
 
-Este repositório contém os ficheiros de configuração (`docker-compose.yml`) e modelos de ambiente para a gestão e deployment automatizado dos serviços do servidor. 
+Este repositório contém os arquivos de configuração (`docker-compose.yml`) e modelos de ambiente para a gestão e deployment automatizado dos serviços do servidor. 
 
-A arquitetura foi estruturada de forma modular, onde cada serviço possui a sua própria pasta de trabalho e ficheiro de composição individual.
+A arquitetura foi estruturada de forma modular, onde cada serviço possui a seu próprio diretório e arquivo compose individual.
 
 ---
 
