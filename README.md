@@ -1,10 +1,10 @@
-# 🏠 Zola Homelab
+# Meu Homelab
 
 Repositório central de infraestrutura e serviços em containers Docker para o meu Homelab pessoal.
 
 ---
 
-## 📌 Visão Geral
+## Visão Geral
 
 Este repositório contém os ficheiros de configuração (`docker-compose.yml`) e modelos de ambiente para a gestão e deployment automatizado dos serviços do servidor. 
 
@@ -12,7 +12,7 @@ A arquitetura foi estruturada de forma modular, onde cada serviço possui a sua 
 
 ---
 
-## 🛠️ Serviços Instalados
+## Serviços Instalados
 
 | Serviço | Descrição | Acesso Local |
 | :--- | :--- | :--- |
@@ -22,7 +22,7 @@ A arquitetura foi estruturada de forma modular, onde cada serviço possui a sua 
 
 ---
 
-## 📂 Estrutura de Pastas
+## Estrutura de Pastas
 
 ```text
 .
