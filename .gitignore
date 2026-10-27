@@ -13,3 +13,10 @@
 # Logs e arquivos temporários do sistema
 *.log
 .DS_Store
+
+# Dados do Immich, Pi-hole e Nginx Proxy Manager
+**/library/
+**/postgres/
+**/etc-pihole/
+**/npm-data/
+**/npm-letsencrypt/

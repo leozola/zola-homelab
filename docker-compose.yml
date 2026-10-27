@@ -1,10 +1,16 @@
-# version: '3.8'
-
+# Cada serviço fica em sua própria pasta. O .env da raiz é repassado a todos.
+# A rede "rede-server" é externa: crie uma única vez com
+#   docker network create rede-server
 include:
-  - nextcloud/compose.yml
-  - aiostreams/compose.yml
-  - portainer/compose.yml
-
-networks:
-  rede-server:
-    driver: bridge
+  - path: nextcloud/compose.yml
+    env_file: .env
+  - path: aiostreams/compose.yml
+    env_file: .env
+  - path: portainer/compose.yml
+    env_file: .env
+  - path: immich/compose.yml
+    env_file: .env
+  - path: pihole/compose.yml
+    env_file: .env
+  - path: nginx-proxy-manager/compose.yml
+    env_file: .env

@@ -10,4 +10,10 @@ services:
       - SECRET_KEY=${AIOSTREAMS_SECRET_KEY}
     volumes:
       - /caminho/para/config/aiostreams:/app/data
+    networks:
+      - rede-server
     restart: unless-stopped
+
+networks:
+  rede-server:
+    external: true

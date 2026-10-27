@@ -1,0 +1,20 @@
+services:
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx-proxy-manager
+    ports:
+      - "80:80"
+      - "443:443"
+      - "${NPM_ADMIN_PORT:-81}:81"
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ./npm-data:/data
+      - ./npm-letsencrypt:/etc/letsencrypt
+    networks:
+      - rede-server
+    restart: unless-stopped
+
+networks:
+  rede-server:
+    external: true

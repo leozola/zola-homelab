@@ -1,0 +1,25 @@
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "${PIHOLE_WEB_PORT:-8081}:80"
+    environment:
+      - TZ=${TZ}
+      - FTLCONF_webserver_api_password=${PIHOLE_PASSWORD}
+      # Responde a consultas vindas de qualquer aparelho da rede
+      - FTLCONF_dns_listeningMode=all
+      - FTLCONF_dns_upstreams=1.1.1.1;8.8.8.8
+      # Domínios locais: todos apontam para o servidor, e o Nginx Proxy Manager encaminha
+      - FTLCONF_dns_hosts=${SERVER_IP} fotos.home;${SERVER_IP} pihole.home;${SERVER_IP} proxy.home;${SERVER_IP} nuvem.home;${SERVER_IP} portainer.home;${SERVER_IP} streams.home
+    volumes:
+      - ./etc-pihole:/etc/pihole
+    networks:
+      - rede-server
+    restart: unless-stopped
+
+networks:
+  rede-server:
+    external: true
