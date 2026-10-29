@@ -53,12 +53,12 @@ O acesso por IP:porta continua funcionando sempre. Os domínios `.home` são um 
 
 ## Primeira Instalação (Ubuntu)
 
-1. **Liberar a porta 53 para o Pi-hole.** O Ubuntu usa essa porta com o `systemd-resolved`:
+1. **Porta 53 (Pi-hole).** O Pi-hole usa a porta 53 só no `SERVER_IP`, então convive com o `systemd-resolved` do Ubuntu (que fica em `127.0.0.53`). O `SERVER_IP` do `.env` precisa ser exatamente o IP do servidor (`ip -4 addr`).
+   Se ainda der `address already in use`, veja quem está usando a porta:
    ```bash
-   sudo sed -i 's/^#\?DNSStubListener=.*/DNSStubListener=no/' /etc/systemd/resolved.conf
-   sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
-   sudo systemctl restart systemd-resolved
+   sudo ss -tulpn | grep ':53 '
    ```
+   Se for outro programa em `0.0.0.0:53` ou `*:53` (ex.: `dnsmasq`, `named`), pare-o com `sudo systemctl disable --now <serviço>`.
 2. **Criar a rede compartilhada** (uma única vez):
    ```bash
    docker network create rede-server
